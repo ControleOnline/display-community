@@ -16,7 +16,7 @@ jobs:
         run: |
           cd /home/runner/work/controleonline/controleonline
           echo "export const ENTRYPOINT_LOCAL = 'https://api.controleonline.com'" > ./src/config/entrypoint.local.js
-          echo "export const DOMAIN_LOCAL = 'app.controleonline.com'" > ./src/config/domain.local.js
+          echo "export const DOMAIN_LOCAL = 'display.controleonline.com'" > ./src/config/domain.local.js
           yarn
           npm install
           npm update
@@ -25,8 +25,8 @@ jobs:
       - name: Copy to controleonline
         uses: horochx/deploy-via-scp@master
         with:
-          local: /home/runner/work/controleonline/controleonline/dist/*
-          remote: ~/sistemas/controleonline/app/dist
+          local: /home/runner/work/controleonline/display/dist/*
+          remote: ~/sistemas/controleonline/display/dist
           host: sshproxy.cloudserver8.com
           port: 22212
           user: control2
