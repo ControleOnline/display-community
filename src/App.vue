@@ -1,24 +1,11 @@
 <template>
-  <div id="q-app">
-    <router-view />
-  </div>
+  <router-view />
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { defineComponent } from 'vue'
 
-export default {
-  name: 'App',
-  
-  methods: {
-    ...mapActions({
-      setIndexRoute: 'auth/setIndexRoute'
-    })
-  },
-  
-  created() {
-    /* global configs */
-    this.setIndexRoute('HomeIndex');
-  }
-}
+export default defineComponent({
+  name: 'App'
+})
 </script>
