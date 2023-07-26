@@ -1,9 +1,16 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
-import * as modules from "@controleonline/quasar-common-ui/src/store/modules";
-
-
+import auth from "@controleonline/quasar-login-ui/src/store/modules/auth";
+import queues from "@controleonline/quasar-queues-ui/src/store/modules/queues";
+import categories from "@controleonline/quasar-common-ui/src/store/categories";
+import menu from "@controleonline/quasar-common-ui/src/store/menu";
+import users from "@controleonline/quasar-common-ui/src/store/users";
+import gmaps from "@controleonline/quasar-common-ui/src/store/gmaps";
+import people from "@controleonline/quasar-common-ui/src/store/people";
+import config from "@controleonline/quasar-common-ui/src/store/config";
+import profile from "@controleonline/quasar-common-ui/src/store/profile";
+import user from "@controleonline/quasar-common-ui/src/store/user";
 
 Vue.use(Vuex);
 
@@ -18,7 +25,18 @@ Vue.use(Vuex);
 
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
-    modules: { modules },
+    modules: {
+      auth,
+      queues,
+      categories,
+      menu,
+      users,
+      gmaps,
+      people,
+      config,
+      profile,
+      user,
+    },
 
     // enable strict mode (adds overhead!)
     // for dev mode only
