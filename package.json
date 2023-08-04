@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@controleonline/quasar-common-ui": "^1.1.38",
-    "@controleonline/quasar-login-ui": "^1.0.45",
+    "@controleonline/quasar-login-ui": "^1.0.46",
     "@controleonline/quasar-queues-ui": "^1.0.16",
     "@newrelic/browser-agent": "^1.236.0",
     "@quasar/app": "^3.3.3",
