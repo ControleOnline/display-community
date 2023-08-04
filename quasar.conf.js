@@ -6,7 +6,7 @@ module.exports = function (ctx) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/cli-documentation/boot-files
-    boot: ["i18n", "myapi", "custom"],
+    boot: ["i18n", "api", "custom"],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
     css: ["app.scss"],
@@ -29,7 +29,7 @@ module.exports = function (ctx) {
     framework: {
       cssAddon: true,
       iconSet: "material-icons", // Quasar icon set
-      lang: "pt-br", // Quasar language pack
+      lang: "pt-BR", // Quasar language pack
 
       // Possible values for "all":
       // * 'auto' - Auto-import needed Quasar components & directives

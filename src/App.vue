@@ -20,7 +20,7 @@ export default {
   created() {
     /* global configs */
     this.newrelic();
-    this.setIndexRoute("HomeIndex");
+    //this.setIndexRoute("HomeIndex");
   },
 
   methods: {
