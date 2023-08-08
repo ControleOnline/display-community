@@ -19,7 +19,23 @@
   <link rel="icon" type="image/ico" href="/images/favicon.ico">
   <!--<link rel="stylesheet" href="https://app.controleonline.com/modules/chat/css/chat.css">-->
   <!--<script type="text/javascript" src="https://app.controleonline.com/modules/chat/js/chat.js"></script>-->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').then(registration => {
+          console.log('Service Worker registrado com sucesso:', registration);
 
+          // Verifique se há uma atualização pendente do Service Worker
+          if (registration.waiting) {
+            // Há uma nova versão disponível, você pode mostrar uma mensagem ao usuário e perguntar se eles desejam atualizar
+            console.log('Há uma nova versão disponível, por favor atualize a página.');
+          }
+        }).catch(error => {
+          console.log('Falha ao registrar o Service Worker:', error);
+        });
+      });
+    }
+  </script>
 
 </head>
 

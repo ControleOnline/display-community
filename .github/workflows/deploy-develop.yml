@@ -1,33 +1,45 @@
 name: Deploy Project
 on:
   push:
-    branches: [ develop ]
+    branches: [develop]
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 12.18.1
-      - name: Check out Git repository
-        uses: actions/checkout@v1
-      - name: Building the project
+          node-version: ">=18.0.0"
+      - name: Building the project dev
         run: |
-              cd /home/runner/work/accounting/accounting
-              echo "export const ENTRYPOINT_LOCAL = 'https://api.nossocep.com.br'" > ./src/config/entrypoint.local.js
-              echo "export const DOMAIN_LOCAL = location.host" > ./src/config/domain.local.js              
-              yarn
-              npm install
-              npm update
-              npx quasar build
-              npx quasar build -m pwa              
-      - name: Copy to Nossocep
+          cd /home/runner/work/display-community/display-community
+          echo "export const ENTRYPOINT_LOCAL = 'https://api.dev.controleonline.com'" > ./src/config/entrypoint.local.js
+          echo "export const DOMAIN_LOCAL = location.host" > ./src/config/domain.local.js
+          yarn
+          npm install
+          npm update
+          npx quasar build
+          npx quasar build -m pwa
+      - name: Copy to controleonline dev
         uses: horochx/deploy-via-scp@master
         with:
-          local: /home/runner/work/accounting/accounting/dist/*
-          remote: /var/www/vhosts/nossocep.com.br/sistemas/accounting/dist
-          host: 69.162.120.82
+          local: /home/runner/work/display-community/display-community/dist/*
+          remote: ~/sistemas/controleonline/display/dist
+          host: dev.controleonline.com
           port: 22
-          user: nossocep_usu
-          key: ${{ secrets.NOSSOCEP }}
+          user: controleonline1
+          key: ${{ secrets.LOCAWEB }} 
+      - name: Update Controle Online      
+        uses: appleboy/ssh-action@master
+        with:
+          host: dev.controleonline.com
+          username: controleonline1
+          key: ${{ secrets.LOCAWEB }}
+          port: 22        
+          script: |
+                  cd ~/sistemas/controleonline/api
+                  git checkout develop
+                  git pull origin develop                
+                  php composer.phar install --no-suggest
+                  php bin/console doctrine:migrations:migrate --no-interaction                                   
