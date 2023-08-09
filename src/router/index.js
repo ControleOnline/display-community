@@ -1,13 +1,11 @@
-import { LocalStorage } from "quasar";
-import { route } from "quasar/wrappers";
-import {
-  createMemoryHistory,
-  createRouter,
-  createWebHashHistory,
-  createWebHistory,
-} from "vue-router";
-import { version } from "../../package.json";
+import Vue from "vue";
+import VueRouter from "vue-router";
+
 import routes from "./routes";
+import { version } from "../../package.json";
+import { LocalStorage } from "quasar";
+
+Vue.use(VueRouter);
 
 /*
  * If not building with SSR mode, you can
@@ -18,21 +16,15 @@ import routes from "./routes";
  * with the Router instance.
  */
 
-export default route(function ({ store }) {
-  const createHistory = process.env.SERVER
-    ? createMemoryHistory
-    : process.env.VUE_ROUTER_MODE === "history"
-    ? createWebHistory
-    : createWebHashHistory;
-
-  const Router = createRouter({
-    scrollBehavior: () => ({ left: 0, top: 0 }),
-    routes,
-
-    // Leave this as is and make changes in quasar.conf.js instead!
-    // quasar.conf.js -> build -> vueRouterMode
-    // quasar.conf.js -> build -> publicPath
-    history: createHistory(process.env.VUE_ROUTER_BASE),
+export default function ({ store }) {
+  const Router = new VueRouter({
+    routes: routes,
+    mode: process.env.VUE_ROUTER_MODE,
+    base: process.env.VUE_ROUTER_BASE,
+    scrollBehavior: () => ({
+      x: 0,
+      y: 0,
+    }),
   });
 
   const autoLogin = () => {
@@ -106,11 +98,7 @@ export default route(function ({ store }) {
     }
 
     //sub router for /shop
-    if (
-      to.name === "ProductsInCategory" ||
-      to.name === "CategoriesIndex" ||
-      to.name === "ProductDetails"
-    ) {
+    if (to.name === "ProductsInCategory" || to.name === "CategoriesIndex" || to.name === "ProductDetails") {
       return next();
     }
 
@@ -130,4 +118,4 @@ export default route(function ({ store }) {
   });
 
   return Router;
-});
+}

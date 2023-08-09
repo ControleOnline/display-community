@@ -6,13 +6,13 @@ const routes = [
   ...Queues.routes,
   {
     path: "/",
-    component: () => import("layouts/MainLayout.vue"),
+    component: () => import("layouts/AdminLayout.vue"),
     children: [
       {
         name: "HomeIndex",
         path: "displays",
         component: () =>
-          import("@controleonline/quasar-queues-ui/src/pages/Display/Display.vue"),
+          import("@controleonline/quasar-queues-ui/src/pages/Display/Displays.vue"),
       },
     ],
   },

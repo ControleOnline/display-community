@@ -1,4 +1,3 @@
-
 import categories from "@controleonline/quasar-common-ui/src/store/categories";
 import config from "@controleonline/quasar-common-ui/src/store/config";
 import gmaps from "@controleonline/quasar-common-ui/src/store/gmaps";
@@ -10,16 +9,10 @@ import users from "@controleonline/quasar-common-ui/src/store/users";
 import auth from "@controleonline/quasar-login-ui/src/store/modules/auth";
 import queues from "@controleonline/quasar-queues-ui/src/store/modules/queues";
 
+import Vue from "vue";
+import Vuex from "vuex";
 
-
-
-
-
-
-import { store } from 'quasar/wrappers';
-import { createStore } from 'vuex';
-
-// import example from './module-example'
+Vue.use(Vuex);
 
 /*
  * If not building with SSR mode, you can
@@ -30,8 +23,8 @@ import { createStore } from 'vuex';
  * with the Store instance.
  */
 
-export default store(function (/* { ssrContext } */) {
-  const Store = createStore({
+export default function (/* { ssrContext } */) {
+  const Store = new Vuex.Store({
     modules: {
       auth,
       queues,
@@ -46,9 +39,9 @@ export default store(function (/* { ssrContext } */) {
     },
 
     // enable strict mode (adds overhead!)
-    // for dev mode and --debug builds only
-    strict: process.env.DEV
-  })
+    // for dev mode only
+    strict: process.env.DEV,
+  });
 
-  return Store
-})
+  return Store;
+}
