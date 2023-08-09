@@ -29,7 +29,7 @@ module.exports = function (ctx) {
     framework: {
       cssAddon: true,
       iconSet: "material-icons", // Quasar icon set
-      lang: "pt-BR", // Quasar language pack
+      lang: "pt-br", // Quasar language pack
 
       // Possible values for "all":
       // * 'auto' - Auto-import needed Quasar components & directives
@@ -140,9 +140,9 @@ module.exports = function (ctx) {
       workboxPluginMode: "GenerateSW", // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: "Controle Online",
-        short_name: "Controle Online",
-        description: "Controle Online",
+        name: "Display Controle Online",
+        short_name: "Display Controle Online",
+        description: "Display Controle Online",
         display: "standalone",
         orientation: "portrait",
         background_color: "#ffffff",
@@ -206,7 +206,7 @@ module.exports = function (ctx) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: "contabion_crm",
+        appId: "display_controleonline",
       },
 
       // More info: https://quasar.dev/quasar-cli/developing-electron-apps/node-integration
