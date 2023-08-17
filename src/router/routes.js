@@ -16,10 +16,10 @@ const routes = [
       },
     ],
   },
-  //{
-  //  path: "*",
-  //  redirect: "/",
-  //},
+  {
+    path: "*",
+    redirect: "/",
+  },
 ];
 
 export default routes;
