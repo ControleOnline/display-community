@@ -16,6 +16,12 @@ jobs:
           cd /home/runner/work/display-community/display-community
           echo "export const ENTRYPOINT_LOCAL = 'https://api.controleonline.com'" > ./src/config/entrypoint.local.js
           echo "export const DOMAIN_LOCAL = location.host" > ./src/config/domain.local.js
+          echo "const env = {\
+          OAUTH_GOOGLE_CLIENT_ID:'${{ secrets.OAUTH_GOOGLE_CLIENT_ID }}',\
+          GMAPS_GOOGLE_CLIENT_ID:'${{ secrets.GMAPS_GOOGLE_CLIENT_ID }}',\
+          };\
+          module.exports = { env };\
+          " > ./src/config/env.local.js
           yarn
           npm install
           npm update
