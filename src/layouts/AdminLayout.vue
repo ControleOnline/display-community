@@ -226,32 +226,37 @@ export default {
     "$route.name"() {
       this.setRoute();
     },
-    permissions() {
 
-      if (
-        this.permissions.indexOf("franchisee") !== -1 ||
-        this.permissions.indexOf("salesman") !== -1 ||
-        this.permissions.indexOf("super") !== -1 ||
-        this.permissions.indexOf("admin") !== -1
-      ) {
-        this.isAdmin = true;
-      }
+
+    permissions: {
+      handler: function (permissions) {
+        if (
+          permissions.indexOf("franchisee") !== -1 ||
+          permissions.indexOf("salesman") !== -1 ||
+          permissions.indexOf("super") !== -1 ||
+          permissions.indexOf("admin") !== -1
+        ) {
+          this.isAdmin = true;
+        }
+      },
+      deep: true,
     },
-    getPeopleDefaultCompany(data) {
 
-
-      if (data) {
-        this.defaultCompany = data;
-        this.defaultCompanyLogo = "//" + data.logo.domain + data.logo.url;
-        data.permissions.forEach((item) => {
-          if (this.permissions.indexOf(item) === -1) {
-            this.permissions.push(item);
-          }
-        });
-        this.setRoute();
-        this.pageLoading = false;
-      }
+    getPeopleDefaultCompany: {
+      handler: function (data) {
+        if (data) {
+          this.defaultCompany = data;
+          this.defaultCompanyLogo = "//" + data.logo.domain + data.logo.url;
+          data.permissions.forEach((item) => {
+            this.permissions.push(item);            
+          });
+          this.setRoute();
+          this.pageLoading = false;
+        }
+      },
+      deep: true,
     },
+
   },
 
   methods: {
