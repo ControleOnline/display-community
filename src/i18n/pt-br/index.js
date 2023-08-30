@@ -6,6 +6,7 @@
 
 import * as Common from "@controleonline/quasar-common-ui/src/i18n/pt-br/index";
 import * as Queues from "@controleonline/quasar-queues-ui/src/i18n/pt-br/index";
+import * as Login from "@controleonline/quasar-login-ui/src/i18n/pt-br/index";
 export default {
   app: {
     name: "Controle Online",
@@ -13,4 +14,5 @@ export default {
 
   ...Common.translate,
   ...Queues.translate,
+  ...Login.translate,
 };
