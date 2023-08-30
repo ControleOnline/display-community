@@ -29,7 +29,7 @@ module.exports = function (ctx) {
     framework: {
       cssAddon: true,
       iconSet: "material-icons", // Quasar icon set
-      lang: "pt-br", // Quasar language pack
+      lang: "pt-BR", // Quasar language pack
 
       // Possible values for "all":
       // * 'auto' - Auto-import needed Quasar components & directives
@@ -106,15 +106,22 @@ module.exports = function (ctx) {
       // showProgress: false,
       // gzip: true,
       // analyze: true,
-
-      env: ctx.dev
-        ? { APP_API_ENTRYPOINT: "https://localhost:8081/" }
-        : { APP_API_ENTRYPOINT: "https://api.controleonline.com/" },
+      env: require('./src/config/env').ENV_APP,
 
       // Options below are automatically set depending on the env, set them if you want to override
       // preloadChunks: false,
       // extractCSS: false,
-
+      chainWebpack(chain) {
+        chain.module
+          .rule('css')
+          .oneOf('normal')
+          .use('css-loader')
+          .tap(options => {
+            // Ajuste as opções do css-loader aqui
+            options.url = false; // ou true, dependendo do que você precisa
+            return options;
+          });
+      },
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
       extendWebpack(cfg) {},
     },
