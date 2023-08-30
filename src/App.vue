@@ -5,7 +5,7 @@
 </template>
 
 <script>
-//import { BrowserAgent } from '@newrelic/browser-agent/src/loaders/browser-agent';
+import { BrowserAgent } from '@newrelic/browser-agent/src/loaders/browser-agent';
 import { mapActions } from "vuex";
 
 export default {
@@ -20,7 +20,7 @@ export default {
   created() {
     /* global configs */
     this.newrelic();
-    //this.setIndexRoute("HomeIndex");
+    this.setIndexRoute("HomeIndex");
   },
 
   methods: {
@@ -46,7 +46,7 @@ export default {
           applicationID: "1103260930",
         }, // NREUM.loader_config
       };
-      //new BrowserAgent(options);
+      new BrowserAgent(options);
     },
   },
 };
