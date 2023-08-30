@@ -29,17 +29,4 @@ jobs:
           host: sshproxy.cloudserver8.com
           port: 22501
           user: control2
-          key: ${{ secrets.CONTROLEONLINE }} 
-      - name: Update Controle Online      
-        uses: appleboy/ssh-action@master
-        with:
-          host: sshproxy.cloudserver8.com
-          username: control2
           key: ${{ secrets.CONTROLEONLINE }}
-          port: 22501        
-          script: |
-                  cd /home/control2/sistemas/controleonline/api
-                  git checkout production
-                  git pull origin production                
-                  php composer.phar install --no-suggest
-                  php bin/console doctrine:migrations:migrate --no-interaction                                   
