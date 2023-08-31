@@ -9,7 +9,7 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@controleonline/quasar-common-ui": "^1.1.61",
+    "@controleonline/quasar-common-ui": "^1.1.62",
     "@controleonline/quasar-login-ui": "^1.0.91",
     "@controleonline/quasar-queues-ui": "^1.0.29",
     "@fontsource/metropolis": "^4.5.3",
