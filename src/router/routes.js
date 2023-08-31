@@ -10,9 +10,11 @@ const routes = [
     children: [
       {
         name: "HomeIndex",
-        path: "displays",
+        path: "home",
         component: () =>
-          import("@controleonline/quasar-queues-ui/src/pages/Display/Displays.vue"),
+          import(
+            "@controleonline/quasar-queues-ui/src/pages/Display/Displays.vue"
+          ),
       },
     ],
   },

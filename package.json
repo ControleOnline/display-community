@@ -11,7 +11,7 @@
   "dependencies": {
     "@controleonline/quasar-common-ui": "^1.1.58",
     "@controleonline/quasar-login-ui": "^1.0.91",
-    "@controleonline/quasar-queues-ui": "^1.0.25",
+    "@controleonline/quasar-queues-ui": "^1.0.26",
     "@fontsource/metropolis": "^4.5.3",
     "@newrelic/browser-agent": "^1.238.0",
     "@quasar/app": "^3.3.3",
