@@ -1,11 +1,12 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-
-import routes from "./routes";
-import { version } from "../../package.json";
 import { LocalStorage } from "quasar";
-
-Vue.use(VueRouter);
+import { route } from "quasar/wrappers";
+import {
+  createRouter,
+  createMemoryHistory,
+  createWebHistory,
+  createWebHashHistory,
+} from "vue-router";
+import routes from "./routes";
 
 /*
  * If not building with SSR mode, you can
@@ -16,15 +17,23 @@ Vue.use(VueRouter);
  * with the Router instance.
  */
 
-export default function ({ store }) {
-  const Router = new VueRouter({
-    routes: routes,
-    mode: process.env.VUE_ROUTER_MODE,
-    base: process.env.VUE_ROUTER_BASE,
-    scrollBehavior: () => ({
-      x: 0,
-      y: 0,
-    }),
+export default route(function ({ store, ssrContext }) {
+  const createHistory = process.env.SERVER
+    ? createMemoryHistory
+    : process.env.VUE_ROUTER_MODE === "history"
+    ? createWebHistory
+    : createWebHashHistory;
+
+  const Router = createRouter({
+    scrollBehavior: () => ({ left: 0, top: 0 }),
+    routes,
+
+    // Leave this as is and make changes in quasar.conf.js instead!
+    // quasar.conf.js -> build -> vueRouterMode
+    // quasar.conf.js -> build -> publicPath
+    history: createHistory(
+      process.env.MODE === "ssr" ? void 0 : process.env.VUE_ROUTER_BASE
+    ),
   });
 
   const autoLogin = () => {
@@ -35,7 +44,6 @@ export default function ({ store }) {
     ) {
       return true;
     }
-
     // clean storage from not allowed keys
 
     let keys = LocalStorage.getAllKeys();
@@ -46,13 +54,14 @@ export default function ({ store }) {
     if (LocalStorage.has("session")) {
       let session = LocalStorage.getItem("session");
 
+      // in case app version changes clear LocalStorage
+
       if (session.user != undefined) {
         store.dispatch("auth/logIn", {
           username: session.user,
           api_key: session.token,
           people: session.people,
           company: session.company,
-          version: version,
           email: session.email,
           phone: session.phone,
           avatar: session.avatar,
@@ -101,4 +110,4 @@ export default function ({ store }) {
   });
 
   return Router;
-}
+});
