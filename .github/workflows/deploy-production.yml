@@ -31,8 +31,7 @@ jobs:
           module.exports = { env };\
           " > ./src/config/env.local.js
           yarn
-          npm install
-          npm update
+
           npx quasar build
           npx quasar build -m pwa
       - name: Copy to controleonline
