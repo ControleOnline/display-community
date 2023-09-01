@@ -146,7 +146,7 @@ module.exports = function (ctx) {
     pwa: {
       workboxPluginMode: "GenerateSW", // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {
-        exclude: [/.htaccess/], // Excluir o arquivo icon.png do pré-carregamento
+        exclude: [/\.htaccess$/], // Excluir o arquivo icon.png do pré-carregamento
 
       }, // only for GenerateSW
       manifest: {
