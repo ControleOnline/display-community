@@ -145,7 +145,10 @@ module.exports = function (ctx) {
     // https://quasar.dev/quasar-cli/developing-pwa/configuring-pwa
     pwa: {
       workboxPluginMode: "GenerateSW", // 'GenerateSW' or 'InjectManifest'
-      workboxOptions: {}, // only for GenerateSW
+      workboxOptions: {
+        exclude: [/.htaccess/], // Excluir o arquivo icon.png do pré-carregamento
+
+      }, // only for GenerateSW
       manifest: {
         name: "Display Controle Online",
         short_name: "Display Controle Online",
