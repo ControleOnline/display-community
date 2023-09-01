@@ -19,7 +19,7 @@ export default {
 
   created() {
     /* global configs */
-    if (process.env.NEW_RELIC)
+    if (process.env.NEW_RELIC?.LICENSE_KEY)
       this.newrelic();
   },
 
