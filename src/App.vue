@@ -19,7 +19,8 @@ export default {
 
   created() {
     /* global configs */
-    this.newrelic();    
+    if (process.env.NEW_RELIC)
+      this.newrelic();
   },
 
   methods: {
@@ -28,21 +29,21 @@ export default {
         init: {
           distributed_tracing: { enabled: true },
           privacy: { cookies_enabled: true },
-          ajax: { deny_list: ["bam.nr-data.net"] },
+          ajax: { deny_list: [process.env.NEW_RELIC.BEACON, process.env.NEW_RELIC.ERROR_BEACON] },
         }, // NREUM.init
         info: {
-          beacon: "bam.nr-data.net",
-          errorBeacon: "bam.nr-data.net",
-          licenseKey: "NRJS-53f2ae2e19f86352a61",
-          applicationID: "1103260930",
+          beacon: process.env.NEW_RELIC.BEACON,
+          errorBeacon: process.env.NEW_RELIC.ERROR_BEACON,
+          licenseKey: process.env.NEW_RELIC.LICENSE_KEY,
+          applicationID: process.env.NEW_RELIC.APPLICATION_ID,
           sa: 1,
         }, // NREUM.info
         loader_config: {
-          accountID: "4036155",
-          trustKey: "4036155",
-          agentID: "1103260930",
-          licenseKey: "NRJS-53f2ae2e19f86352a61",
-          applicationID: "1103260930",
+          accountID: process.env.NEW_RELIC.ACCOUNT_ID,
+          trustKey: process.env.NEW_RELIC.TRUST_KEY,
+          agentID: process.env.NEW_RELIC.APPLICATION_ID,
+          licenseKey: process.env.NEW_RELIC.LICENSE_KEY,
+          applicationID: process.env.NEW_RELIC.APPLICATION_ID,
         }, // NREUM.loader_config
       };
       new BrowserAgent(options);
