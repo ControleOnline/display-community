@@ -9,12 +9,12 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@controleonline/quasar-common-ui": "^1.1.62",
-    "@controleonline/quasar-layout-ui": "^1.0.3",
+    "@controleonline/quasar-common-ui": "^1.1.67",
+    "@controleonline/quasar-layout-ui": "^1.0.4",
     "@controleonline/quasar-login-ui": "^1.0.93",
     "@controleonline/quasar-queues-ui": "^1.0.34",
     "@fontsource/metropolis": "^4.5.3",
-    "@newrelic/browser-agent": "^1.238.0",
+    "@newrelic/browser-agent": "^1.239.1",
     "@quasar/app": "^3.3.3",
     "@quasar/extras": "^1.16.6",
     "axios": "^0.26.1",
@@ -24,7 +24,7 @@
     "devextreme-vue": "^23.1.4",
     "echarts": "^5.4.3",
     "md5": "^2.3.0",
-    "quasar": "^2.12.5",
+    "quasar": "^2.12.6",
     "startbootstrap-sb-admin": "^7.0.7",
     "vue": "3",
     "vue-echarts-v3": "^2.0.1",
@@ -36,7 +36,7 @@
     "yarn": "^1.22.19"
   },
   "devDependencies": {
-    "@quasar/app-webpack": "^3.9.6",
+    "@quasar/app-webpack": "^3.10.0",
     "@vue/runtime-dom": "^3.3.4",
     "css-loader": "^6.8.1",
     "stylus": "^0.59.0",
