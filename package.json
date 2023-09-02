@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@controleonline/quasar-common-ui": "^1.1.62",
-    "@controleonline/quasar-layout-ui": "^1.0.1",
+    "@controleonline/quasar-layout-ui": "^1.0.3",
     "@controleonline/quasar-login-ui": "^1.0.93",
     "@controleonline/quasar-queues-ui": "^1.0.34",
     "@fontsource/metropolis": "^4.5.3",
