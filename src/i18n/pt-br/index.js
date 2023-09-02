@@ -13,6 +13,7 @@ export default {
   },
 
   ...Common.translate,
-  ...Queues.translate,
   ...Login.translate,
+  ...Queues.translate,
 };
+
