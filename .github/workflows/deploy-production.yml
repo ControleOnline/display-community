@@ -31,8 +31,7 @@ jobs:
           module.exports = { env };\
           " > ./src/config/env.local.js
           yarn
-          npx quasar build
-          npx quasar build -m pwa   
+          npx quasar build -m spa
       - name: Deploy
         uses: locaweb/ftp-deploy@1.0.0
         with:
