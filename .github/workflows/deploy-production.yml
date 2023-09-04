@@ -31,19 +31,9 @@ jobs:
           module.exports = { env };\
           " > ./src/config/env.local.js
           yarn
-
           npx quasar build
-          npx quasar build -m pwa
-      - name: Copy to controleonline
-        uses: horochx/deploy-via-scp@master
-        with:
-          local: /home/runner/work/display-community/display-community/dist/*
-          remote: ~/sistemas/controleonline/display/dist
-          host: sshproxy.cloudserver8.com
-          port: 22501
-          user: control2
-          key: ${{ secrets.CONTROLEONLINE }}          
-      - name: FTP Deploy Locaweb
+          npx quasar build -m pwa   
+      - name: Deploy
         uses: locaweb/ftp-deploy@1.0.0
         with:
           host: ${{ secrets.HOST }} 
