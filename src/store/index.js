@@ -8,6 +8,7 @@ import user from "@controleonline/quasar-common-ui/src/store/user";
 import users from "@controleonline/quasar-common-ui/src/store/users";
 import auth from "@controleonline/quasar-login-ui/src/store/modules/auth";
 import queues from "@controleonline/quasar-queues-ui/src/store/modules/queues";
+
 import { store } from "quasar/wrappers";
 import { createStore } from "vuex";
 
@@ -34,7 +35,7 @@ export default store(function (/* { ssrContext } */) {
       people,
       config,
       profile,
-      user,
+      user
     },
 
     // enable strict mode (adds overhead!)
