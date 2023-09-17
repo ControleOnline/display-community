@@ -23,6 +23,7 @@
     "devextreme": "^23.1.5",
     "devextreme-vue": "^23.1.5",
     "echarts": "^5.4.3",
+    "g": "^2.0.1",
     "md5": "^2.3.0",
     "quasar": "^2.12.6",
     "startbootstrap-sb-admin": "^7.0.7",
