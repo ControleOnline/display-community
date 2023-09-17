@@ -13,7 +13,7 @@ const routes = [
         path: "home",
         component: () =>
           import(
-            "@controleonline/quasar-queues-ui/src/pages/Display/Displays.vue"
+            "@controleonline/quasar-queues-ui/src/pages/Hardware/Hardwares.vue"
           ),
       },
     ],
