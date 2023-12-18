@@ -13,9 +13,9 @@
     "@controleonline/quasar-layout-ui": "^1.0.4",
     "@controleonline/quasar-login-ui": "^1.0.93",
     "@controleonline/quasar-queues-ui": "^1.0.34",
+    "@controleonline/quasar-default-ui": "^1.0.0",
     "@fontsource/metropolis": "^4.5.3",
     "@newrelic/browser-agent": "^1.239.1",
-    "@quasar/app": "^3.3.3",
     "@quasar/extras": "^1.16.6",
     "axios": "^0.26.1",
     "cordova-common": "^4.1.0",
@@ -36,7 +36,7 @@
     "yarn": "^1.22.19"
   },
   "devDependencies": {
-    "@quasar/app-webpack": "^3.10.0",
+    "@quasar/app-webpack": "^3",
     "@vue/runtime-dom": "^3.3.4",
     "css-loader": "^6.8.1",
     "stylus": "^0.59.0",
