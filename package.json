@@ -9,7 +9,7 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@controleonline/quasar-common-ui": "^1.1.70",
+    "@controleonline/quasar-common-ui": "^1.2.40",
     "@controleonline/quasar-layout-ui": "^1.0.4",
     "@controleonline/quasar-login-ui": "^1.0.93",
     "@controleonline/quasar-queues-ui": "^1.0.34",
@@ -38,9 +38,7 @@
   "devDependencies": {
     "@quasar/app-webpack": "^3",
     "@vue/runtime-dom": "^3.3.4",
-    "css-loader": "^6.8.1",
-    "stylus": "^0.59.0",
-    "stylus-loader": "^7.1.3",
+
     "workbox-webpack-plugin": "^6.6.0"
   },
   "engines": {
