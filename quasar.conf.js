@@ -124,6 +124,9 @@ module.exports = function (ctx) {
       // },
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
       extendWebpack(cfg) {},
+      chainWebpack(chain) {
+        
+      },
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
