@@ -55,4 +55,4 @@ jobs:
                   git checkout develop
                   git pull origin develop                
                   php composer.phar install --no-suggest
-                  php bin/console doctrine:migrations:migrate --no-interaction                                   
+                  php bin/console tenant:migrations:migrate --no-interaction                                   
